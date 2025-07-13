@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Website</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Marked.js for Markdown to HTML conversion -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* A simple fade-in animation for page content */
+        .page-content {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Basic styling for rendered Markdown content */
+        .prose h1, .prose h2, .prose h3 {
+            font-weight: 700;
+            margin-bottom: 0.5em;
+            margin-top: 1em;
+        }
+        .prose h1 { font-size: 2.25rem; }
+        .prose h2 { font-size: 1.875rem; }
+        .prose h3 { font-size: 1.5rem; }
+        .prose p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+        .prose a {
+            color: #2563eb; /* blue-600 */
+            text-decoration: underline;
+        }
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5em;
+            margin-bottom: 1em;
+        }
+        .prose pre {
+            background-color: #f3f4f6; /* gray-100 */
+            padding: 1em;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+        .prose code {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="nav-link text-xl font-bold text-gray-900">Your Name</a>
+            <div class="space-x-6">
+                <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                <a href="#blog" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Blog</a>
+                <a href="#publications" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Publications</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container mx-auto px-6 py-12">
+
+        <!-- Home Page Content -->
+        <main id="home" class="page-content">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-shrink-0">
+                    <img src="https://placehold.co/160x160/e2e8f0/334155?text=You" alt="Your Name" class="rounded-full shadow-lg w-40 h-40 object-cover">
+                </div>
+                <div>
+                    <h1 class="text-4xl font-bold text-gray-900">Hi, I'm [Your Name]</h1>
+                    <p class="mt-4 text-lg text-gray-600">
+                        Welcome to my personal corner of the web. I am a [Your Profession/Role] based in [Your City]. I'm passionate about [Your Interests/Field]. This website is where I share my work, thoughts, and publications.
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-blue-600 hover:underline">Email</a>
+                        <a href="#" class="text-blue-600 hover:underline">GitHub</a>
+                        <a href="#" class="text-blue-600 hover:underline">LinkedIn</a>
+                        <a href="#" class="text-blue-600 hover:underline">Twitter / X</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Blog Page Content (hidden by default) -->
+        <main id="blog" class="page-content hidden">
+            <!-- This container will show the list of blog posts -->
+            <div id="blog-list-container">
+                <h1 class="text-4xl font-bold text-gray-900 mb-8">Blog</h1>
+                <div id="blog-list" class="space-y-12">
+                    <!-- Blog posts will be dynamically inserted here -->
+                </div>
+            </div>
+            <!-- This container will show a single blog post -->
+            <div id="blog-post-container" class="hidden">
+                 <button id="back-to-blog" class="mb-8 text-blue-600 hover:underline">&larr; Back to Blog List</button>
+                 <div id="blog-post-content" class="prose max-w-none"></div>
+            </div>
+        </main>
+
+        <!-- Publications Page Content (hidden by default) -->
+        <main id="publications" class="page-content hidden">
+            <h1 class="text-4xl font-bold text-gray-900 mb-8">Publications</h1>
+            <div class="space-y-8">
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="font-bold text-lg text-gray-900">A Groundbreaking Study on AI Ethics</h3>
+                    <p class="mt-1 text-gray-600"><strong>[Your Name]</strong>, Jane Doe, John Smith. (2025).</p>
+                    <p class="mt-1 text-gray-500 italic">Journal of Important Research, Vol. 42, pp. 123-145.</p>
+                    <div class="mt-3 space-x-4">
+                        <a href="#" class="text-blue-600 hover:underline">[PDF]</a>
+                        <a href="#" class="text-blue-600 hover:underline">[Code]</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">&copy; 2025 Your Name. All Rights Reserved.</div>
+    </footer>
+
+    <!-- JavaScript for Page Navigation and Markdown Blog -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pages = document.querySelectorAll('.page-content');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const blogListContainer = document.getElementById('blog-list-container');
+            const blogPostContainer = document.getElementById('blog-post-container');
+            const blogList = document.getElementById('blog-list');
+            const blogPostContent = document.getElementById('blog-post-content');
+            const backToBlogBtn = document.getElementById('back-to-blog');
+
+            // =================================================================
+            // HOW TO ADD A NEW BLOG POST:
+            // 1. Create a new .md file in a 'posts' folder (e.g., /posts/my-new-post.md)
+            // 2. Add a new object to the `blogPosts` array below.
+            // =================================================================
+            const blogPosts = [
+                {
+                    slug: 'my-first-post',
+                    title: 'My First Blog Post',
+                    date: 'July 13, 2025',
+                    description: 'This is a short summary of the first post, which is written in Markdown! This makes writing content much easier.',
+                    path: 'posts/my-first-post.md'
+                },
+                {
+                    slug: 'exploring-new-tech',
+                    title: 'Exploring New Technologies',
+                    date: 'June 28, 2025',
+                    description: 'A look into some new and exciting technologies. This post also demonstrates the power of Markdown for technical writing.',
+                    path: 'posts/exploring-new-tech.md'
+                }
+            ];
+
+            // --- Function to render the list of blog posts ---
+            function renderBlogList() {
+                blogList.innerHTML = ''; // Clear existing list
+                blogPosts.forEach(post => {
+                    const article = document.createElement('article');
+                    article.innerHTML = `
+                        <h2 class="text-2xl font-bold text-gray-900">
+                            <a href="#blog/${post.slug}" class="hover:text-blue-600 post-link">${post.title}</a>
+                        </h2>
+                        <p class="text-sm text-gray-500 mt-1">${post.date}</p>
+                        <p class="mt-3 text-gray-600">${post.description}</p>
+                        <a href="#blog/${post.slug}" class="text-blue-600 hover:underline mt-4 inline-block post-link">Read More &rarr;</a>
+                    `;
+                    blogList.appendChild(article);
+                });
+
+                // Add event listeners to the new links
+                document.querySelectorAll('.post-link').forEach(link => {
+                    link.addEventListener('click', handleRouting);
+                });
+            }
+
+            // --- Function to fetch and render a single blog post ---
+            async function renderBlogPost(slug) {
+                const post = blogPosts.find(p => p.slug === slug);
+                if (!post) {
+                    blogPostContent.innerHTML = '<p>Post not found.</p>';
+                    return;
+                }
+
+                try {
+                    const response = await fetch(post.path);
+                    if (!response.ok) {
+                        throw new Error(`Could not fetch ${post.path}. Make sure the file exists.`);
+                    }
+                    const markdown = await response.text();
+                    blogPostContent.innerHTML = marked.parse(markdown);
+                } catch (error) {
+                    console.error('Error fetching post:', error);
+                    blogPostContent.innerHTML = `<p class="text-red-500">Error: Could not load blog post. Check the console for details.</p>`;
+                }
+            }
+
+            // --- Main page navigation and routing logic ---
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', page.id !== pageId);
+                });
+            }
+            
+            function handleRouting() {
+                const hash = window.location.hash || '#home';
+                
+                if (hash.startsWith('#blog/')) {
+                    const slug = hash.substring(6); // Get slug from '#blog/slug'
+                    showPage('blog');
+                    blogListContainer.classList.add('hidden');
+                    blogPostContainer.classList.remove('hidden');
+                    renderBlogPost(slug);
+                } else if (hash === '#blog') {
+                    showPage('blog');
+                    blogListContainer.classList.remove('hidden');
+                    blogPostContainer.classList.add('hidden');
+                    renderBlogList(); // Render the list every time we navigate to the blog page
+                } else {
+                    const pageId = hash.substring(1) || 'home';
+                    showPage(pageId);
+                }
+            }
+
+            // --- Event Listeners ---
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleRouting);
+            });
+
+            backToBlogBtn.addEventListener('click', () => {
+                window.location.hash = '#blog';
+            });
+            
+            // Listen for hash changes (e.g., browser back/forward buttons)
+            window.addEventListener('hashchange', handleRouting);
+
+            // --- Initial Load ---
+            handleRouting(); // Call on initial page load
+        });
+    </script>
+
+</body>
+</html>
