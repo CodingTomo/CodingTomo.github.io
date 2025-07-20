@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomaso Trinci</title>
     
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Marked.js for Markdown to HTML conversion -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -64,9 +61,8 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header and Navigation -->
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav class="container mx-auto px-12 py-4 flex justify-between items-center">
             <a href="#home" class="nav-link text-xl font-bold text-gray-900">Tomaso Trinci</a>
             <div class="space-x-6">
                 <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Home</a>
@@ -76,10 +72,8 @@
         </nav>
     </header>
 
-    <!-- Main Content Area -->
-    <div class="container mx-auto px-6 py-12">
+    <div class="container mx-auto px-12 py-12">
 
-        <!-- Home Page Content -->
         <main id="home" class="page-content">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="flex-shrink-0">
@@ -93,7 +87,7 @@
                         I'm sticking around Florence and now work at Verizon. My background is a mix of Math and Computer Engineering. These days, I'm really into computer vision, intelligent vehicle applications, and multimodal models. In the past, I've also spent time working on continual learning and sustainable AI.
                     </p>
                     <div class="mt-6 flex space-x-4">
-                        <a href="tomaso.trinci90@gmail.com" class="text-blue-600 hover:underline">Email</a>
+                        <a href="mailto:tomaso.trinci90@gmail.com" class="text-blue-600 hover:underline">Email</a>
                         <a href="https://github.com/CodingTomo" class="text-blue-600 hover:underline">GitHub</a>
                         <a href="https://it.linkedin.com/in/tomasotrinci" class="text-blue-600 hover:underline">LinkedIn</a>
                         <a href="https://bsky.app/profile/tomo-90.bsky.social" class="text-blue-600 hover:underline">Bluesky</a>
@@ -102,23 +96,18 @@
             </div>
         </main>
 
-        <!-- Blog Page Content (hidden by default) -->
         <main id="blog" class="page-content hidden">
-            <!-- This container will show the list of blog posts -->
             <div id="blog-list-container">
                 <h1 class="text-4xl font-bold text-gray-900 mb-8">Blog</h1>
                 <div id="blog-list" class="space-y-12">
-                    <!-- Blog posts will be dynamically inserted here -->
-                </div>
+                    </div>
             </div>
-            <!-- This container will show a single blog post -->
             <div id="blog-post-container" class="hidden">
                  <button id="back-to-blog" class="mb-8 text-blue-600 hover:underline">&larr; Back to Blog List</button>
                  <div id="blog-post-content" class="prose max-w-none"></div>
             </div>
         </main>
 
-        <!-- Publications Page Content (hidden by default) -->
         <main id="publications" class="page-content hidden">
             <h1 class="text-4xl font-bold text-gray-900 mb-8">Publications</h1>
             <div class="space-y-8">
@@ -134,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-         
+        
                 <div class="p-6 bg-white rounded-lg shadow-md">
                     <h3 class="font-bold text-lg text-gray-900">How green is continual learning, really? Analyzing the energy consumption in continual training of vision foundation models</h3>
                     <p class="mt-1 text-gray-600"><strong>T. Trinci</strong>, S. Magistri, R. Verdecchia, A.D. Bagdanov. (2024).</p>
@@ -182,12 +171,10 @@
 
     </div>
 
-    <!-- Footer -->
     <footer class="bg-white border-t border-gray-200 mt-12">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-500">&copy; 2025 Tomaso Trinci. All Rights Reserved.</div>
+        <div class="container mx-auto px-12 py-4 text-center text-gray-500">&copy; 2025 Tomaso Trinci. All Rights Reserved.</div>
     </footer>
 
-    <!-- JavaScript for Page Navigation and Markdown Blog -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const pages = document.querySelectorAll('.page-content');
