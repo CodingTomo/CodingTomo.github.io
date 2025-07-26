@@ -17,6 +17,7 @@
         /* Use the Inter font family */
         body {
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
         /* A simple fade-in animation for page content */
         .page-content {
@@ -62,31 +63,46 @@
 <body class="bg-gray-50 text-gray-800">
 
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
-        <nav class="container mx-auto px-48 py-4 flex justify-between items-center">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="#home" class="nav-link text-xl font-bold text-gray-900">Tomaso Trinci</a>
-            <div class="space-x-6">
+            
+            <div class="hidden md:flex space-x-6">
                 <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Home</a>
                 <a href="#blog" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Blog</a>
                 <a href="#publications" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Publications</a>
             </div>
+
+            <button id="menu-btn" class="md:hidden block text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#home" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="#blog" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Blog</a>
+            <a href="#publications" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Publications</a>
+        </div>
     </header>
 
-    <div class="container mx-auto px-48 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 
         <main id="home" class="page-content">
-            <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12">
                 <div class="flex-shrink-0">
-                    <img src="img/profile_pic.jpg" alt="Tomaso" class="rounded-full shadow-lg w-40 h-40 object-cover">
+                    <img src="img/profile_pic.jpg" alt="Tomaso" class="rounded-full shadow-lg w-32 h-32 sm:w-40 sm:h-40 object-cover mx-auto md:mx-0">
                 </div>
                 <div>
-                    <h1 class="text-4xl font-bold text-gray-900">Hi, I'm Tomo</h1>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Hello, visitor! &#1F596;</h1>
                     <p class="mt-4 text-lg text-gray-600">
-                        I'm a Data Scientist at <a href="https://www.verizonconnect.com/" class="underline text-blue-600 hover:text-blue-800">Verizon Connect</a> in Florence.
+                        I am a Data Scientist at <a href="https://www.verizonconnect.com/" class="underline text-blue-600 hover:text-blue-800">Verizon Connect</a> in Florence.
                         I kicked things off at <a href="https://www.reply.com/target-reply/en" class="underline text-blue-600 hover:text-blue-800">Target Reply</a> in Milan before coming back here to get my Ph.D. in Machine Learning working at the <a href="https://webgol.dinfo.unifi.it/" class="underline text-blue-600 hover:text-blue-800">Global Optimization Laboratory</a>.
                         I'm sticking around Florence and now work at Verizon. My background is a mix of Math and Computer Engineering. These days, I'm really into computer vision, intelligent vehicle applications, and multimodal models. In the past, I've also spent time working on continual learning and sustainable AI.
+
+                        I know next to nothing about front-end. This page was realized by simply vibing with Gemini &#1F916;.
                     </p>
-                    <div class="mt-6 flex space-x-4">
+                    <div class="mt-6 flex space-x-4 justify-center md:justify-start">
                         <a href="mailto:tomaso.trinci90@gmail.com" class="text-blue-600 hover:underline">Email</a>
                         <a href="https://github.com/CodingTomo" class="text-blue-600 hover:underline">GitHub</a>
                         <a href="https://it.linkedin.com/in/tomasotrinci" class="text-blue-600 hover:underline">LinkedIn</a>
@@ -98,7 +114,7 @@
 
         <main id="blog" class="page-content hidden">
             <div id="blog-list-container">
-                <h1 class="text-4xl font-bold text-gray-900 mb-8">Blog</h1>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Blog</h1>
                 <div id="blog-list" class="space-y-12">
                     </div>
             </div>
@@ -109,9 +125,9 @@
         </main>
 
         <main id="publications" class="page-content hidden">
-            <h1 class="text-4xl font-bold text-gray-900 mb-8">Publications</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Publications</h1>
             <div class="space-y-8">
-                <div class="p-6 bg-white rounded-lg shadow-md flex items-start gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
                     <img src="img/efc++.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
                     <div>
                         <h3 class="font-bold text-lg text-gray-900">EFC++: Elastic Feature Consolidation with Prototype Re-balancing for Cold Start Exemplar-free Incremental Learning</h3>
@@ -123,8 +139,8 @@
                         </div>
                     </div>
                 </div>
-        
-                <div class="p-6 bg-white rounded-lg shadow-md flex items-start gap-6">
+            
+                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
                     <img src="img/green_ai.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
                     <div>
                         <h3 class="font-bold text-lg text-gray-900">How green is continual learning, really? Analyzing the energy consumption in continual training of vision foundation models</h3>
@@ -137,7 +153,7 @@
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex items-start gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
                     <img src="img/efc.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
                     <div>
                         <h3 class="font-bold text-lg text-gray-900">Elastic feature consolidation for cold start exemplar-free incremental learning</h3>
@@ -150,7 +166,7 @@
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex items-start gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
                     <img src="img/eff_tl.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
                     <div>
                         <h3 class="font-bold text-lg text-gray-900">Cross-Model Temporal Cooperation Via Saliency Maps for Efficient Recognition and Classification of Relevant Traffic Lights</h3>
@@ -162,12 +178,11 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
 
-            <h1 class="text-4xl font-bold text-gray-900 mb-8 mt-16">Patents</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 mt-16">Patents</h1>
             <div class="space-y-8">
-                <div class="p-6 bg-white rounded-lg shadow-md flex items-start gap-6">
+                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
                     <img src="img/patent.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
                     <div>
                         <h3 class="font-bold text-lg text-gray-900">Systems and methods for reducing power consumption of executing learning models in vehicle systems</h3>
@@ -183,20 +198,34 @@
 
     </div>
 
-    <footer class="bg-white border-t border-gray-200 mt-12">
-        <div class="container mx-auto px-48 py-4 text-center text-gray-500">&copy; 2025 Tomaso Trinci. All Rights Reserved.</div>
+    <footer class="bg-white border-t border-gray-200 mt-8 sm:mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500 text-sm">&copy; 2025 Tomaso Trinci. All Rights Reserved.</div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const pages = document.querySelectorAll('.page-content');
             const navLinks = document.querySelectorAll('.nav-link');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
             
             const blogListContainer = document.getElementById('blog-list-container');
             const blogPostContainer = document.getElementById('blog-post-container');
             const blogList = document.getElementById('blog-list');
             const blogPostContent = document.getElementById('blog-post-content');
             const backToBlogBtn = document.getElementById('back-to-blog');
+            
+            // --- Mobile Menu Toggle ---
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            function closeMobileMenu() {
+                mobileMenu.classList.add('hidden');
+            }
+            mobileNavLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
 
             // =================================================================
             // HOW TO ADD A NEW BLOG POST:
@@ -268,6 +297,7 @@
                 pages.forEach(page => {
                     page.classList.toggle('hidden', page.id !== pageId);
                 });
+                window.scrollTo(0, 0); // Scroll to top on page change
             }
             
             function handleRouting() {
@@ -288,10 +318,14 @@
                     const pageId = hash.substring(1) || 'home';
                     showPage(pageId);
                 }
+                closeMobileMenu(); // Close menu after navigation
             }
 
             // --- Event Listeners ---
             navLinks.forEach(link => {
+                link.addEventListener('click', handleRouting);
+            });
+            mobileNavLinks.forEach(link => {
                 link.addEventListener('click', handleRouting);
             });
 
