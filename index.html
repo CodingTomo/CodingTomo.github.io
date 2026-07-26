@@ -11,13 +11,16 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* Use the Inter font family */
+        /* Sans-serif for body copy, serif for headings - editorial, minimal look */
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        .font-display {
+            font-family: 'Newsreader', serif;
         }
         /* A simple fade-in animation for page content */
         .page-content {
@@ -29,7 +32,8 @@
         }
         /* Basic styling for rendered Markdown content */
         .prose h1, .prose h2, .prose h3 {
-            font-weight: 700;
+            font-family: 'Newsreader', serif;
+            font-weight: 500;
             margin-bottom: 0.5em;
             margin-top: 1em;
         }
@@ -38,11 +42,13 @@
         .prose h3 { font-size: 1.5rem; }
         .prose p {
             margin-bottom: 1em;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .prose a {
-            color: #2563eb; /* blue-600 */
+            color: #1c1917; /* stone-900 */
             text-decoration: underline;
+            text-decoration-color: #d6d3d1; /* stone-300 */
+            text-underline-offset: 4px;
         }
         .prose ul {
             list-style-type: disc;
@@ -50,9 +56,9 @@
             margin-bottom: 1em;
         }
         .prose pre {
-            background-color: #f3f4f6; /* gray-100 */
+            background-color: #f5f5f4; /* stone-100 */
             padding: 1em;
-            border-radius: 0.5rem;
+            border-radius: 0.25rem;
             overflow-x: auto;
         }
         .prose code {
@@ -60,215 +66,211 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-[#faf9f6] text-stone-800">
 
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#home" class="nav-link text-xl font-bold text-gray-900">Tomo's log</a>
+    <header class="bg-[#faf9f6]/90 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
+        <nav class="max-w-3xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#home" class="nav-link font-display text-xl text-stone-900">Tomo's log</a>
             
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Home</a>
-                <a href="#blog" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Blog</a>
-                <a href="#publications" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Publications</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors">Home</a>
+                <a href="#blog" class="nav-link text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors">Blog</a>
+                <a href="#publications" class="nav-link text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors">Publications</a>
             </div>
 
-            <button id="menu-btn" class="md:hidden block text-gray-800 focus:outline-none">
+            <button id="menu-btn" class="md:hidden block text-stone-800 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#home" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Home</a>
-            <a href="#blog" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Blog</a>
-            <a href="#publications" class="mobile-nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100">Publications</a>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200">
+            <a href="#home" class="mobile-nav-link block py-3 px-4 text-xs uppercase tracking-widest text-stone-600 hover:bg-stone-100">Home</a>
+            <a href="#blog" class="mobile-nav-link block py-3 px-4 text-xs uppercase tracking-widest text-stone-600 hover:bg-stone-100">Blog</a>
+            <a href="#publications" class="mobile-nav-link block py-3 px-4 text-xs uppercase tracking-widest text-stone-600 hover:bg-stone-100">Publications</a>
         </div>
     </header>
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div class="max-w-3xl mx-auto px-6 py-8 sm:py-12">
 
         <main id="home" class="page-content">
-            <div class="flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12">
-                <div class="flex-shrink-0">
-                    <img src="img/profile_pic.jpg" alt="Tomaso" class="rounded-full shadow-lg w-32 h-32 sm:w-40 sm:h-40 object-cover mx-auto md:mx-0">
-                </div>
-                <div>
-                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Hello, visitor! 🖖</h1>
-                    <p class="mt-4 text-lg text-gray-600">
-                        I am Tomo, aka Tomaso Trinci, a Data Scientist at <a href="https://www.verizonconnect.com/" class="underline text-blue-600 hover:text-blue-800">Verizon Connect</a> in Florence. My journey started at <a href="https://www.reply.com/target-reply/en" class="underline text-blue-600 hover:text-blue-800">Target Reply</a> in Milan before I headed back here to earn my Ph.D. in Machine Learning with the <a href="https://webgol.dinfo.unifi.it/" class="underline text-blue-600 hover:text-blue-800">Global Optimization Laboratory</a>.<br><br>
+            <h1 class="font-display text-4xl sm:text-5xl text-stone-900 mb-6">Hello, visitor! 🖖</h1>
+            <div>
+                <img src="img/profile_pic.jpg" alt="Tomaso" class="w-28 h-28 sm:w-40 sm:h-40 object-cover rounded-full border border-stone-200 mx-auto mb-4 sm:float-left sm:mx-0 sm:mr-6 sm:mb-2">
+                <p class="text-lg text-stone-600 leading-relaxed">
+                    I am Tomo, aka Tomaso Trinci, a Data Scientist at <a href="https://www.verizonconnect.com/" class="underline decoration-stone-300 hover:decoration-stone-900 text-stone-900">Verizon Connect</a> in Florence. My journey started at <a href="https://www.reply.com/target-reply/en" class="underline decoration-stone-300 hover:decoration-stone-900 text-stone-900">Target Reply</a> in Milan before I headed back here to earn my Ph.D. in Machine Learning with the <a href="https://webgol.dinfo.unifi.it/" class="underline decoration-stone-300 hover:decoration-stone-900 text-stone-900">Global Optimization Laboratory</a>.<br><br>
 
-                        With a background blending Math and Computer Engineering, I am currently focused on computer vision, intelligent vehicle applications, and multimodal models. In the past, I've also spent time diving into continual learning and sustainable AI.<br><br>
+                    With a background blending Math and Computer Engineering, I am currently focused on computer vision, intelligent vehicle applications, and multimodal models. In the past, I've also spent time diving into continual learning and sustainable AI.<br><br>
 
-                        When I'm not training models, I’m training my palate; I am currently attending the first level of the sommelier course at <a href="https://www.fisar.org/" class="underline text-blue-600 hover:text-blue-800">FISAR</a>, mostly because wine tasting is a task that machine learning (still) hasn't managed to solve.<br><br>
+                    When I'm not training models, I’m training my palate; I completed the first level of the sommelier course at <a href="https://www.fisar.org/" class="underline decoration-stone-300 hover:decoration-stone-900 text-stone-900">FISAR</a>, mostly because wine tasting is a task that machine learning (still) hasn't managed to solve. I'm also an avid comics reader, from manga to graphic novels, and my favorite author is <a href="https://it.wikipedia.org/wiki/Zerocalcare" class="underline decoration-stone-300 hover:decoration-stone-900 text-stone-900">Zerocalcare</a>.<br><br>
 
-                        P.S. I know next to nothing about front-end. This page was realized by simply vibing with Gemini 🤖.
-                    </p>
-                    <div class="mt-6 flex space-x-4 justify-center md:justify-start">
-                        <a href="mailto:tomaso.trinci90@gmail.com" class="text-blue-600 hover:underline">Email</a>
-                        <a href="https://github.com/CodingTomo" class="text-blue-600 hover:underline">GitHub</a>
-                        <a href="https://it.linkedin.com/in/tomasotrinci" class="text-blue-600 hover:underline">LinkedIn</a>
-                        <a href="https://bsky.app/profile/tomo-90.bsky.social" class="text-blue-600 hover:underline">Bluesky</a>
-                        <a href="https://scholar.google.com/citations?user=kfN-d6IAAAAJ&hl=it" class="text-blue-600 hover:underline">Google Scholar</a>
-                    </div>
-                </div>
+                    P.S. I know next to nothing about front-end. This page was realized by simply vibing with Gemini and Claude 🤖
+                </p>
+            </div>
+            <div class="clear-left mt-6 flex flex-wrap gap-x-4 gap-y-2">
+                <a href="mailto:tomaso.trinci90@gmail.com" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">Email</a>
+                <a href="https://github.com/CodingTomo" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">GitHub</a>
+                <a href="https://it.linkedin.com/in/tomasotrinci" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">LinkedIn</a>
+                <a href="https://bsky.app/profile/tomo-90.bsky.social" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">Bluesky</a>
+                <a href="https://scholar.google.com/citations?user=kfN-d6IAAAAJ&hl=it" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">Google Scholar</a>
             </div>
         </main>
 
         <main id="blog" class="page-content hidden">
             <div id="blog-list-container">
-                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Blog</h1>
-                <div id="blog-list" class="space-y-12">
+                <h1 class="font-display text-4xl sm:text-5xl text-stone-900 mb-10">Blog</h1>
+                <div id="blog-list" class="divide-y divide-stone-200">
                     </div>
             </div>
             <div id="blog-post-container" class="hidden">
-                 <button id="back-to-blog" class="mb-8 text-blue-600 hover:underline">&larr; Back to Blog List</button>
+                 <button id="back-to-blog" class="mb-8 text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">&larr; Back to Blog List</button>
                  <div id="blog-post-content" class="prose max-w-none"></div>
             </div>
         </main>
 
         <main id="publications" class="page-content hidden">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">Publications</h1>
-            <div class="space-y-8">
+            <h1 class="font-display text-4xl sm:text-5xl text-stone-900 mb-10">Publications</h1>
+            <div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/flara.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/flara.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">FLaRA: Predicting Future Latent Representations for Accident Anticipation</h3>
-                        <p class="mt-1 text-gray-600">  L. Caselli, <strong>T. Trinci</strong>, T. Bianconcini, S. Magistri, L. Taccari, F. Sambo, A.D. Bagdanov (2026).</p>
-                        <p class="mt-1 text-gray-500 italic">Preprint, Accepted at International Conference on Intelligent Transportation Systems (ITSC)</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://arxiv.org/pdf/2606.14380" class="text-blue-600 hover:underline">[PDF]</a>
+                        <h3 class="font-display text-xl text-stone-900">FLaRA: Predicting Future Latent Representations for Accident Anticipation</h3>
+                        <p class="mt-1 text-stone-600 text-sm">  L. Caselli, <strong>T. Trinci</strong>, T. Bianconcini, S. Magistri, L. Taccari, F. Sambo, A.D. Bagdanov (2026).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">Preprint, Accepted at International Conference on Intelligent Transportation Systems (ITSC)</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://arxiv.org/pdf/2606.14380" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/vzcrash.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/vzcrash.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">VZCrash: A Large-Scale IMU Dataset of Ego-Vehicle Crashes</h3>
-                        <p class="mt-1 text-gray-600"> T. Bianconcini, H. P. Monteagudo, A. Pjetri, <strong>T. Trinci</strong>, L. Taccari (2026).</p>
-                        <p class="mt-1 text-gray-500 italic">Preprint, Accepted at International Conference on Intelligent Transportation Systems (ITSC)</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://arxiv.org/pdf/2606.06074" class="text-blue-600 hover:underline">[PDF]</a>
-                            <a href="https://huggingface.co/datasets/vzc-research-chapter/VZCrash" class="text-blue-600 hover:underline">[Dataset]</a>
+                        <h3 class="font-display text-xl text-stone-900">VZCrash: A Large-Scale IMU Dataset of Ego-Vehicle Crashes</h3>
+                        <p class="mt-1 text-stone-600 text-sm"> T. Bianconcini, H. P. Monteagudo, A. Pjetri, <strong>T. Trinci</strong>, L. Taccari (2026).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">Preprint, Accepted at International Conference on Intelligent Transportation Systems (ITSC)</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://arxiv.org/pdf/2606.06074" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
+                            <a href="https://huggingface.co/datasets/vzc-research-chapter/VZCrash" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[Dataset]</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/mllm.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/mllm.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Enhancing Multimodal Large Language Models for Safety-Critical Driving Video Analysis</h3>
-                        <p class="mt-1 text-gray-600"> <strong>T. Trinci</strong>, H. P. Monteagudo, L. Taccari (2026).</p>
-                        <p class="mt-1 text-gray-500 italic">Preprint, Accepted at International Conference on Intelligent Transportation Systems (ITSC)</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://arxiv.org/pdf/2605.22185" class="text-blue-600 hover:underline">[PDF]</a>
+                        <h3 class="font-display text-xl text-stone-900">Enhancing Multimodal Large Language Models for Safety-Critical Driving Video Analysis</h3>
+                        <p class="mt-1 text-stone-600 text-sm"> <strong>T. Trinci</strong>, H. P. Monteagudo, L. Taccari (2026).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">Preprint, Accepted at International Conference on Intelligent Transportation Systems (ITSC)</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://arxiv.org/pdf/2605.22185" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/color_is_not.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/color_is_not.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Color is not enough: dataset and method for identifying relevant traffic lights in driving scenes</h3>
-                        <p class="mt-1 text-gray-600"> <strong>T. Trinci</strong>, S. Magistri, T. Bianconcini, L. Sarti, L. Taccari, F. Sambo (2025).</p>
-                        <p class="mt-1 text-gray-500 italic">IEEE Transactions on Intelligent Transportation Systems, pp. 1116-1125</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://ieeexplore.ieee.org/document/11241141/" class="text-blue-600 hover:underline">[PDF]</a>
-                            <a href="https://huggingface.co/datasets/vzc-research-chapter/vzc-traffic-light-dataset" class="text-blue-600 hover:underline">[Dataset]</a>
+                        <h3 class="font-display text-xl text-stone-900">Color is not enough: dataset and method for identifying relevant traffic lights in driving scenes</h3>
+                        <p class="mt-1 text-stone-600 text-sm"> <strong>T. Trinci</strong>, S. Magistri, T. Bianconcini, L. Sarti, L. Taccari, F. Sambo (2025).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">IEEE Transactions on Intelligent Transportation Systems, pp. 1116-1125</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://ieeexplore.ieee.org/document/11241141/" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
+                            <a href="https://huggingface.co/datasets/vzc-research-chapter/vzc-traffic-light-dataset" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[Dataset]</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/efc++.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/efc++.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">EFC++: Elastic Feature Consolidation with Prototype Re-balancing for Cold Start Exemplar-free Incremental Learning</h3>
-                        <p class="mt-1 text-gray-600">S. Magistri, <strong>T. Trinci</strong>, A. Soutif-Cormerais, J. van de Weijer, A.D. Bagdanov (2025).</p>
-                        <p class="mt-1 text-gray-500 italic">[Under Review since July 2024]</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://arxiv.org/pdf/2503.10439" class="text-blue-600 hover:underline">[PDF]</a>
-                            <a href="https://github.com/simomagi/elastic_feature_consolidation" class="text-blue-600 hover:underline">[Code]</a>
+                        <h3 class="font-display text-xl text-stone-900">EFC++: Elastic Feature Consolidation with Prototype Re-balancing for Cold Start Exemplar-free Incremental Learning</h3>
+                        <p class="mt-1 text-stone-600 text-sm">S. Magistri, <strong>T. Trinci</strong>, A. Soutif-Cormerais, J. van de Weijer, A.D. Bagdanov (2025).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">[Under Review since July 2024]</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://arxiv.org/pdf/2503.10439" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
+                            <a href="https://github.com/simomagi/elastic_feature_consolidation" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[Code]</a>
                         </div>
                     </div>
                 </div>
             
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/green_ai.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/green_ai.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">How green is continual learning, really? Analyzing the energy consumption in continual training of vision foundation models</h3>
-                        <p class="mt-1 text-gray-600"><strong>T. Trinci</strong>, S. Magistri, R. Verdecchia, A.D. Bagdanov. (2024).</p>
-                        <p class="mt-1 text-gray-500 italic">Computer Vision – ECCV 2024 Workshops, Part XXII, pp. 300-317.</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://arxiv.org/pdf/2409.18664" class="text-blue-600 hover:underline">[PDF]</a>
-                            <a href="https://github.com/CodingTomo/how-green-continual-learning" class="text-blue-600 hover:underline">[Code]</a>
+                        <h3 class="font-display text-xl text-stone-900">How green is continual learning, really? Analyzing the energy consumption in continual training of vision foundation models</h3>
+                        <p class="mt-1 text-stone-600 text-sm"><strong>T. Trinci</strong>, S. Magistri, R. Verdecchia, A.D. Bagdanov. (2024).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">Computer Vision – ECCV 2024 Workshops, Part XXII, pp. 300-317.</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://arxiv.org/pdf/2409.18664" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
+                            <a href="https://github.com/CodingTomo/how-green-continual-learning" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[Code]</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/efc.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/efc.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Elastic feature consolidation for cold start exemplar-free incremental learning</h3>
-                        <p class="mt-1 text-gray-600">S. Magistri, <strong>T. Trinci</strong>, A. Soutif-Cormerais, J. van de Weijer, A.D. Bagdanov (2024).</p>
-                        <p class="mt-1 text-gray-500 italic">The Twelfth International Conference on Learning Representations (ICLR).</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://openreview.net/forum?id=7D9X2cFnt1" class="text-blue-600 hover:underline">[PDF]</a>
-                            <a href="https://github.com/simomagi/elastic_feature_consolidation" class="text-blue-600 hover:underline">[Code]</a>
+                        <h3 class="font-display text-xl text-stone-900">Elastic feature consolidation for cold start exemplar-free incremental learning</h3>
+                        <p class="mt-1 text-stone-600 text-sm">S. Magistri, <strong>T. Trinci</strong>, A. Soutif-Cormerais, J. van de Weijer, A.D. Bagdanov (2024).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">The Twelfth International Conference on Learning Representations (ICLR).</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://openreview.net/forum?id=7D9X2cFnt1" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
+                            <a href="https://github.com/simomagi/elastic_feature_consolidation" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[Code]</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/eff_tl.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/eff_tl.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Cross-Model Temporal Cooperation Via Saliency Maps for Efficient Recognition and Classification of Relevant Traffic Lights</h3>
-                        <p class="mt-1 text-gray-600"><strong>T. Trinci</strong>, T. Bianconcini, L. Sarti, L. Taccari, F. Sambo. (2023).</p>
-                        <p class="mt-1 text-gray-500 italic">International Conference on Intelligent Transportation Systems (ITSC), pp. 2758-2763.</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/10421938" class="text-blue-600 hover:underline">[PDF]</a>
-                            <a href="https://github.com/CodingTomo/traffic-light-relevance-annotation" class="text-blue-600 hover:underline">[Code]</a>
+                        <h3 class="font-display text-xl text-stone-900">Cross-Model Temporal Cooperation Via Saliency Maps for Efficient Recognition and Classification of Relevant Traffic Lights</h3>
+                        <p class="mt-1 text-stone-600 text-sm"><strong>T. Trinci</strong>, T. Bianconcini, L. Sarti, L. Taccari, F. Sambo. (2023).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">International Conference on Intelligent Transportation Systems (ITSC), pp. 2758-2763.</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10421938" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
+                            <a href="https://github.com/CodingTomo/traffic-light-relevance-annotation" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[Code]</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/q8.svg.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/q8.svg.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Zeros of slice functions and polynomials over dual quaternions</h3>
-                        <p class="mt-1 text-gray-600">G. Gentili, C. Stoppato, <strong>T. Trinci</strong> (2021).</p>
-                        <p class="mt-1 text-gray-500 italic">Transactions of the American Mathematical Society, pp. 5509-5544.</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://arxiv.org/pdf/1907.13154" class="text-blue-600 hover:underline">[PDF]</a>
+                        <h3 class="font-display text-xl text-stone-900">Zeros of slice functions and polynomials over dual quaternions</h3>
+                        <p class="mt-1 text-stone-600 text-sm">G. Gentili, C. Stoppato, <strong>T. Trinci</strong> (2021).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">Transactions of the American Mathematical Society, pp. 5509-5544.</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://arxiv.org/pdf/1907.13154" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
                         </div>
                     </div>
                 </div>
                 
             </div>
 
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 mt-16">Patents</h1>
-            <div class="space-y-8">
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/patent.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+            <h1 class="font-display text-4xl sm:text-5xl text-stone-900 mb-10 mt-20">Patents</h1>
+            <div>
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/patent.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Systems and methods for detecting traffic light violations</h3>
-                        <p class="mt-1 text-gray-600"><strong>T. Trinci</strong>, T. Bianconcini, L. Sarti, L. Taccari, F. Sambo (2026).</p>
-                        <p class="mt-1 text-gray-500 italic">US Patent App. 18/907,984.</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://patents.google.com/patent/US20260100055A1/en" class="text-blue-600 hover:underline">[PDF]</a>
+                        <h3 class="font-display text-xl text-stone-900">Systems and methods for detecting traffic light violations</h3>
+                        <p class="mt-1 text-stone-600 text-sm"><strong>T. Trinci</strong>, T. Bianconcini, L. Sarti, L. Taccari, F. Sambo (2026).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">US Patent App. 18/907,984.</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://patents.google.com/patent/US20260100055A1/en" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="p-6 bg-white rounded-lg shadow-md flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
-                    <img src="img/patent.png" alt="Publication Image" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                <div class="py-8 border-t border-stone-200 first:border-t-0 first:pt-0 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
+                    <img src="img/patent.png" alt="Publication Image" class="w-20 h-20 object-cover flex-shrink-0 border border-stone-200 bg-white">
                     <div>
-                        <h3 class="font-bold text-lg text-gray-900">Systems and methods for reducing power consumption of executing learning models in vehicle systems</h3>
-                        <p class="mt-1 text-gray-600"><strong>T. Trinci</strong>, T. Bianconcini, L. Taccari, F. Sambo, L. Sarti, S. Magistri (2026).</p>
-                        <p class="mt-1 text-gray-500 italic">US Patent 12,518,522.</p>
-                        <div class="mt-3 space-x-4">
-                            <a href="https://patents.google.com/patent/US12518522B2/en" class="text-blue-600 hover:underline">[PDF]</a>
+                        <h3 class="font-display text-xl text-stone-900">Systems and methods for reducing power consumption of executing learning models in vehicle systems</h3>
+                        <p class="mt-1 text-stone-600 text-sm"><strong>T. Trinci</strong>, T. Bianconcini, L. Taccari, F. Sambo, L. Sarti, S. Magistri (2026).</p>
+                        <p class="mt-1 text-stone-500 text-sm italic">US Patent 12,518,522.</p>
+                        <div class="mt-3 space-x-4 text-sm">
+                            <a href="https://patents.google.com/patent/US12518522B2/en" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900">[PDF]</a>
                         </div>
                     </div>
                 </div>
@@ -278,8 +280,8 @@
 
     </div>
 
-    <footer class="bg-white border-t border-gray-200 mt-8 sm:mt-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500 text-sm">&copy; 2025 Tomaso Trinci. All Rights Reserved.</div>
+    <footer class="border-t border-stone-200 mt-8 sm:mt-12">
+        <div class="max-w-3xl mx-auto px-6 py-6 text-center text-stone-500 text-xs uppercase tracking-widest">&copy; 2025 Tomaso Trinci</div>
     </footer>
 
     <script>
@@ -315,32 +317,28 @@
             const blogPosts = [
                 {
                     slug: 'my-first-post',
-                    title: 'My First Blog Post',
+                    title: 'So, Why a Blog?',
                     date: 'July 13, 2025',
-                    description: 'This is a short summary of the first post, which is written in Markdown! This makes writing content much easier.',
+                    description: 'A quick word on why I’m starting this blog: mostly work and math, sometimes other things, no fixed schedule.',
                     path: 'posts/my-first-post.md'
-                },
-                {
-                    slug: 'exploring-new-tech',
-                    title: 'Exploring New Technologies',
-                    date: 'June 28, 2025',
-                    description: 'A look into some new and exciting technologies. This post also demonstrates the power of Markdown for technical writing.',
-                    path: 'posts/exploring-new-tech.md'
                 }
             ];
 
             // --- Function to render the list of blog posts ---
             function renderBlogList() {
                 blogList.innerHTML = ''; // Clear existing list
-                blogPosts.forEach(post => {
+                const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+                sortedPosts.forEach(post => {
                     const article = document.createElement('article');
                     article.innerHTML = `
-                        <h2 class="text-2xl font-bold text-gray-900">
-                            <a href="#blog/${post.slug}" class="hover:text-blue-600 post-link">${post.title}</a>
-                        </h2>
-                        <p class="text-sm text-gray-500 mt-1">${post.date}</p>
-                        <p class="mt-3 text-gray-600">${post.description}</p>
-                        <a href="#blog/${post.slug}" class="text-blue-600 hover:underline mt-4 inline-block post-link">Read More &rarr;</a>
+                        <div class="py-8 first:pt-0">
+                            <h2 class="font-display text-2xl text-stone-900">
+                                <a href="#blog/${post.slug}" class="hover:text-stone-600 post-link">${post.title}</a>
+                            </h2>
+                            <p class="text-xs uppercase tracking-widest text-stone-500 mt-2">${post.date}</p>
+                            <p class="mt-3 text-stone-600">${post.description}</p>
+                            <a href="#blog/${post.slug}" class="text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 mt-4 inline-block post-link">Read More &rarr;</a>
+                        </div>
                     `;
                     blogList.appendChild(article);
                 });
